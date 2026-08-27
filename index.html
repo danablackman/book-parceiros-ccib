@@ -1,14 +1,17 @@
 <meta charset="utf-8">
 <title>Book de Parceiros — CCIB</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --orange:#EE8100; --orange-soft:#FDEBD3; --orange-ink:#B45D00;
-    --blue:#1C3E94; --blue-deep:#142E6E; --blue-soft:#E8EDF9;
+    --orange:#EC7E0C; --orange-soft:#FDEBD3; --orange-ink:#B45D00;
+    --blue:#063791; --blue-deep:#052A6E; --blue-soft:#E7EDF8;
     --ink:#22242B; --muted:#6E7076; --line:#E6E7EB; --bg:#F7F8FA; --card:#FFFFFF;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,sans-serif;line-height:1.5}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Barlow","Segoe UI",system-ui,-apple-system,sans-serif;line-height:1.5}
 
   /* topo branco com wordmark, como no site */
   .topbar{background:#fff;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
@@ -90,12 +93,12 @@
     <button id="bt-en" onclick="setLang('en')">EN</button>
   </div>
 </div>
-<div class="bluebar" data-i="bluebar">Gerência de Performance e Parcerias · Rede de Provedores Homologados</div>
+<div class="bluebar" data-i="bluebar">Rede de Parceiros</div>
 
 <header class="hero">
   <div class="eyebrow" data-i="eyebrow">Conheça os nossos</div>
   <h1 data-i="title">Parceiros CCIB</h1>
-  <p data-i="intro">Fomentando as relações comerciais entre Índia e Brasil desde 2003. Conheça os provedores homologados pela CCIB e peça uma apresentação — a conexão é sempre feita pela Câmara.</p>
+  <p data-i="intro">Fomentando as relações comerciais entre Índia e Brasil desde 2003. Conheça os nossos parceiros e peça uma apresentação — a conexão é sempre feita pela Câmara.</p>
 </header>
 
 <div class="toolbar">
@@ -142,7 +145,7 @@ const P = [
   en:"19+ years in standard and sworn (certified) translations in multiple languages, serving individuals and international businesses."},
  // Hotelaria
  {n:"Taj Hotels", s:"viag", g:"Índia", m:1,
-  pt:"A icônica rede de hotéis de luxo da Índia (IHCL) — parceira da CCIB homologada há anos, com hospitalidade lendária para executivos e delegações.",
+  pt:"A icônica rede de hotéis de luxo da Índia (IHCL) — parceira da Câmara há anos, com hospitalidade lendária para executivos e delegações.",
   en:"India's iconic luxury hotel group (IHCL) — a long-standing IBCC-approved partner with legendary hospitality for executives and delegations."},
  {n:"Radisson Blu BH Savassi", s:"viag", g:"Brasil · Belo Horizonte", m:0,
   pt:"Localização estratégica na Savassi com estrutura completa para negócios: salas de reunião, Wi-Fi rápido, restaurante e academia.",
@@ -272,9 +275,9 @@ const P = [
   en:"Advisory on pharmaceutical regulatory affairs and Brazilian market access, with a reciprocal referral network with IBCC."},
 ];
 const I18N = {
- pt:{bluebar:"Gerência de Performance e Parcerias · Rede de Provedores Homologados",
+ pt:{bluebar:"Rede de Parceiros",
      eyebrow:"Conheça os nossos", title:"Parceiros CCIB",
-     intro:"Fomentando as relações comerciais entre Índia e Brasil desde 2003. Conheça os provedores homologados pela CCIB e peça uma apresentação — a conexão é sempre feita pela Câmara.",
+     intro:"Fomentando as relações comerciais entre Índia e Brasil desde 2003. Conheça os nossos parceiros e peça uma apresentação — a conexão é sempre feita pela Câmara.",
      onlyMembers:"Só membros CCIB", all:"Todos", search:"Buscar parceiro...",
      member:"Membro CCIB", cta:"Pedir apresentação",
      count:(a,b)=>`Exibindo ${a} de ${b} parceiros`,
@@ -287,9 +290,9 @@ const I18N = {
      foot2:"© 2026 Câmara de Comércio Índia Brasil · India Brazil Chamber of Commerce · indiabrazilchamber.org",
      subject:(n)=>`Pedido de apresentação — ${n}`,
      body:(n)=>`Olá, equipe CCIB!%0D%0A%0D%0ATenho interesse em ser apresentado(a) ao parceiro ${n}.%0D%0A%0D%0AEmpresa:%0D%0ANecessidade:%0D%0A%0D%0AObrigado(a)!`},
- en:{bluebar:"Performance & Partnerships · Approved Provider Network",
+ en:{bluebar:"Partner Network",
      eyebrow:"Meet our", title:"IBCC Partners",
-     intro:"Fostering India-Brazil trade relations since 2003. Get to know IBCC-approved service providers and request an introduction — every connection is made by the Chamber.",
+     intro:"Fostering India-Brazil trade relations since 2003. Get to know our partners and request an introduction — every connection is made by the Chamber.",
      onlyMembers:"IBCC members only", all:"All", search:"Search partners...",
      member:"IBCC Member", cta:"Request introduction",
      count:(a,b)=>`Showing ${a} of ${b} partners`,
@@ -328,7 +331,7 @@ function flagFor(g){
   if (br) return FLAG_BR;
   return FLAG_GL;
 }
-const MEDAL = '<svg class="medal" viewBox="0 0 40 52" aria-hidden="true"><path d="M13 30 9 50l7-5 4 7V30Z" fill="#1C3E94"/><path d="M27 30l4 20-7-5-4 7V30Z" fill="#2F5BC4"/><circle cx="20" cy="18" r="16" fill="#EE8100"/><circle cx="20" cy="18" r="16" fill="none" stroke="#B45D00" stroke-width="1.4"/><circle cx="20" cy="18" r="11.5" fill="none" stroke="#fff" stroke-width="1" opacity=".75"/><text x="20" y="23.5" text-anchor="middle" font-size="15" fill="#fff" font-weight="900">★</text></svg>';
+const MEDAL = '<svg class="medal" viewBox="0 0 40 52" aria-hidden="true"><path d="M13 30 9 50l7-5 4 7V30Z" fill="#063791"/><path d="M27 30l4 20-7-5-4 7V30Z" fill="#2F5BC4"/><circle cx="20" cy="18" r="16" fill="#EC7E0C"/><circle cx="20" cy="18" r="16" fill="none" stroke="#B45D00" stroke-width="1.4"/><circle cx="20" cy="18" r="11.5" fill="none" stroke="#fff" stroke-width="1" opacity=".75"/><text x="20" y="23.5" text-anchor="middle" font-size="15" fill="#fff" font-weight="900">★</text></svg>';
 
 function setLang(l){
   lang = l;
