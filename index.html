@@ -27,7 +27,7 @@
   .lang button.on{background:var(--blue);color:#fff}
   .lang button:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
   .mainnav{display:flex;flex-wrap:wrap;align-items:center;gap:20px}
-  .mainnav a{color:var(--ink);text-decoration:none;font-size:14.5px;font-weight:700;white-space:nowrap;padding:7px 4px;border-radius:8px;transition:color .15s,background .15s}
+  .mainnav a{color:var(--blue);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.03em;white-space:nowrap;padding:7px 4px;border-radius:8px;transition:color .15s,background .15s}
   .mainnav a:hover{color:var(--blue)}
   .mainnav a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
   .mainnav a.active{color:var(--blue);background:#EFEEE4;padding:7px 13px}
@@ -91,13 +91,15 @@
   @media (max-width:700px){.how-in{grid-template-columns:1fr}.search input{width:100%}.topbar{flex-direction:column}.mainnav{justify-content:center;gap:14px 18px}}
   .bluebar{background:var(--blue);color:#fff;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;text-transform:none;letter-spacing:0}
   .bluenav{display:flex;gap:26px;flex-wrap:wrap}
-  .bluenav a{color:#fff;text-decoration:none;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:13px 0;border-bottom:3px solid transparent;transition:border-color .15s,opacity .15s}
+  .bluenav a{color:#F0EFE4;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.2px;padding:13px 0;opacity:.92;transition:opacity .15s}
   .bluenav a:hover{opacity:.85}
-  .bluenav a.active{border-bottom-color:var(--orange)}
+  .bluenav a.active{color:#fff;opacity:1;font-weight:700}
   .bluesocial{display:flex;gap:20px}
-  .bluesocial a{color:#fff;text-decoration:none;font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;gap:6px;opacity:.95}
+  .bluesocial a{color:#F0EFE4;text-decoration:none;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:6px;opacity:.92}
   .bluesocial a:hover{opacity:.72}
   @media(max-width:660px){.bluebar{flex-direction:column;gap:2px;padding:8px 14px}.bluenav{gap:14px;justify-content:center}.bluenav a{padding:6px 0;border-bottom:none}.bluesocial{gap:16px;padding-bottom:4px}}
+  .langlink{color:var(--blue);font-weight:600;font-size:14px;text-decoration:none;letter-spacing:.02em;white-space:nowrap;cursor:pointer;background:none;border:none;font-family:inherit;padding:6px 2px}
+  .langlink:hover{text-decoration:underline}
 </style>
 
 <div class="topbar">
@@ -105,14 +107,11 @@
   <nav class="mainnav" aria-label="Menu da Câmara">
     <a href="https://indiabrazilchamber.org/sobre-nos/" data-i="navSobre">Sobre Nós</a>
     <a href="https://indiabrazilchamber.org/servicos/" data-i="navServ">Serviços</a>
-    <a href="https://indiabrazilchamber.org/associe-se/" data-i="navAssoc">Associe-Se</a>
+    <a href="https://indiabrazilchamber.org/associe-se/" data-i="navAssoc">Associe-se</a>
     <a href="https://indiabrazilchamber.org/oportunidades" data-i="navOport">Oportunidades</a>
     <a href="https://indiabrazilchamber.org/contato/" data-i="navContato">Contato</a>
   </nav>
-  <div class="lang" role="group" aria-label="Idioma">
-    <button id="bt-pt" class="on" onclick="setLang('pt')">PT</button>
-    <button id="bt-en" onclick="setLang('en')">EN</button>
-  </div>
+  <button class="langlink" id="langlink" onclick="setLang(lang==='pt'?'en':'pt')">Website in English</button>
 </div>
 <div class="bluebar">
   <nav class="bluenav" aria-label="Menu secundário">
@@ -308,7 +307,7 @@ const P = [
 ];
 const I18N = {
  pt:{bluebar:"Rede de Parceiros",
-     navSobre:"Sobre Nós", navServ:"Serviços", navAssoc:"Associe-Se", navOport:"Oportunidades", navParc:"Parceiros", navContato:"Contato", navConselho:"Conselho Consultivo", navEquipe:"Equipe", navAssociados:"Associados", navParceiros:"Parceiros",
+     navSobre:"Sobre Nós", navServ:"Serviços", navAssoc:"Associe-se", navOport:"Oportunidades", navParc:"Parceiros", navContato:"Contato", navConselho:"Conselho Consultivo", navEquipe:"Equipe", navAssociados:"Associados", navParceiros:"Parceiros",
      eyebrow:"Conheça os nossos", title:"Parceiros CCIB",
      intro:"Fomentando as relações comerciais entre Índia e Brasil desde 2003. Conheça os nossos parceiros e peça uma apresentação — a conexão é sempre feita pela Câmara.",
      onlyMembers:"Só membros CCIB", all:"Todos", search:"Buscar parceiro...",
@@ -369,8 +368,7 @@ const MEDAL = '<svg class="medal" viewBox="0 0 40 52" aria-hidden="true"><path d
 
 function setLang(l){
   lang = l;
-  document.getElementById("bt-pt").classList.toggle("on", l==="pt");
-  document.getElementById("bt-en").classList.toggle("on", l==="en");
+  var _ll=document.getElementById("langlink");if(_ll)_ll.textContent=l==="pt"?"Website in English":"Website in Portuguese";
   const t = I18N[l];
   document.querySelectorAll("[data-i]").forEach(el=>{
     const k = el.getAttribute("data-i");
