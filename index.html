@@ -111,7 +111,7 @@
     <a href="https://indiabrazilchamber.org/oportunidades" data-i="navOport">Oportunidades</a>
     <a href="https://indiabrazilchamber.org/contato/" data-i="navContato">Contato</a>
   </nav>
-  <button class="langlink" id="langlink" onclick="setLang(lang==='pt'?'en':'pt')">Website in English</button>
+  <button class="langlink" id="langlink" onclick="toggleLang()">Website in English</button>
 </div>
 <div class="bluebar">
   <nav class="bluenav" aria-label="Menu secundário">
@@ -366,6 +366,7 @@ function flagFor(g){
 }
 const MEDAL = '<svg class="medal" viewBox="0 0 40 52" aria-hidden="true"><path d="M13 30 9 50l7-5 4 7V30Z" fill="#063791"/><path d="M27 30l4 20-7-5-4 7V30Z" fill="#2F5BC4"/><circle cx="20" cy="18" r="16" fill="#EC7E0C"/><circle cx="20" cy="18" r="16" fill="none" stroke="#B45D00" stroke-width="1.4"/><circle cx="20" cy="18" r="11.5" fill="none" stroke="#fff" stroke-width="1" opacity=".75"/><text x="20" y="23.5" text-anchor="middle" font-size="15" fill="#fff" font-weight="900">★</text></svg>';
 
+function toggleLang(){setLang(lang==="pt"?"en":"pt");}
 function setLang(l){
   lang = l;
   var _ll=document.getElementById("langlink");if(_ll)_ll.textContent=l==="pt"?"Website in English":"Website in Portuguese";
